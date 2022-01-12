@@ -93,6 +93,34 @@ public class GameBoard {
         }
     }
     
-
-
-}
+    public static int[] playerPositions(String playerShot) {
+        String hit = playerShot.toLowerCase();
+        int[] positions = new int[2];
+        positions[COLUMN_COORDINATE] = hit.charAt(0) - 97;
+        positions[ROW_COORDINATE] = Integer.parseInt(hit.substring(1)) - 1;
+        return positions;
+    }
+    
+    public static void makeMovesGameBoard(int[] coordinates, int playerNumber) {
+        if (playerNumber == 1) {
+            if (computerGameBoard[coordinates[COLUMN_COORDINATE]][coordinates[ROW_COORDINATE]] == SUBMARINE) {
+                computerGameBoard[coordinates[COLUMN_COORDINATE]][coordinates[ROW_COORDINATE]] = RIGHT_SHOT;
+                computerShips--;
+                System.out.println("Tiro certeiro!");
+            } else {
+                computerGameBoard[coordinates[COLUMN_COORDINATE]][coordinates[ROW_COORDINATE]] = MISSED_SHOT;
+                System.out.println("Tiro na água!");
+            }
+        } else {
+            if (playerGameBoard[coordinates[COLUMN_COORDINATE]][coordinates[ROW_COORDINATE]] == SUBMARINE) {
+                playerGameBoard[coordinates[COLUMN_COORDINATE]][coordinates[ROW_COORDINATE]] = RIGHT_SHOT;
+                playerShips--;
+                System.out.println("Tiro certeiro!");
+            } else {
+                playerGameBoard[coordinates[COLUMN_COORDINATE]][coordinates[ROW_COORDINATE]] = MISSED_SHOT;
+                System.out.println("Tiro na água!");
+            }
+        }
+    }
+    
+    }
