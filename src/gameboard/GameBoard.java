@@ -9,6 +9,9 @@ public class GameBoard {
     public final static int COLUMNS = 10;
     final static int SHIPS = 10;
 
+    static int playerShips = 10;
+    static int computerShips = 10;
+
     static int[][] playerGameBoard = new int[ROWS][COLUMNS];
     static int[][] computerGameBoard = new int[ROWS][COLUMNS];
 
@@ -16,6 +19,9 @@ public class GameBoard {
     static final int SUBMARINE = 1;
     static final int RIGHT_SHOT = 2;
     static final int MISSED_SHOT = 3;
+
+    static final int COLUMN_COORDINATE = 0;
+    static final int ROW_COORDINATE = 1;
 
     static Scanner input = new Scanner(System.in);
   
@@ -87,4 +93,6 @@ public class GameBoard {
         }
     }
     
+
+
 }
